@@ -22,7 +22,11 @@
  //===MQTT broker configuration(using public broker for testing)===
  const char* mqtt_server = "test.mosquitto.org"; /**broker change from "://hivemq.com"; */
  const int mqtt_port = 1883;
- const char* mqtt_topic_publish = "industrial/factory/sensor1";
+
+ //previous code
+ //const char* mqtt_topic_publish = "industrial/factory/sensor1";
+
+ const char* mqtt_topic_publish = "industrial/factory/krisnanto/sensor1";
 
  //===global objects===
  DHT dht(DHTPIN, DHTTYPE);
@@ -122,7 +126,7 @@
     Serial.print(temperature);
     Serial.print(F(" ℃ | Hum: "));
     Serial.print(humidity);
-    Serial.println(F(" %"));
+    Serial.println(F(" %")); 
 
     //if connected to MQTT, publish the data in JSON format (standard industry)
     if(client.connected()){
